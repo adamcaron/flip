@@ -1,5 +1,7 @@
-<template>
+<template lang="pug">
   <div class="hello">
+    button(v-on:click.prevent="getListings") get listings
+    p {{ results }}
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -25,7 +27,21 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      results: 'Click to retrieve results'
+    }
+  },
+  methods: {
+    getListings: function () {
+      this.$http
+        .get('http://localhost:8085/api')
+        .then(response => {
+          this.results = response.data.message
+        })
+        .catch(error => {
+          console.error(error)
+          this.results = `Not able to retrieve listings`
+        })
     }
   }
 }
