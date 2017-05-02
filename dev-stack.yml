@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  api:
+    image: node:alpine
+    ports:
+      - 8085:8085
+    volumes:
+      - ${API_MOUNT}:/api
+    working_dir: /api
+    command:
+      - sh
+      - -c
+      - |
+        npm install
+        node server.js
