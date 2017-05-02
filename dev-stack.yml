@@ -1,18 +1,15 @@
 version: '3.1'
 services:
   api:
-    image: node:alpine
+    image: adamcaron/flip:dev
     ports:
      - 8085:8085
     volumes:
      - ${API_MOUNT}:/api
-    working_dir: /api
-    entrypoint: sh
+    entrypoint: node_modules/.bin/nodemon
     command:
-     - -c
-     - |
-       npm install
-       exec node_modules/.bin/nodemon -L server.js
+     - -L
+     - server.js
   ui:
     image: node:alpine
     ports:
