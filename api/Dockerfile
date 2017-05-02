@@ -9,7 +9,5 @@ RUN npm install
 # copy source files
 COPY . .
 
-EXPOSE 8085
-
 ENTRYPOINT node
 CMD [ "server.js" ]
