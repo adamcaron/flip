@@ -7,12 +7,12 @@ services:
     volumes:
      - ${API_MOUNT}:/api
     working_dir: /api
+    entrypoint: sh
     command:
-     - sh
      - -c
      - |
        npm install
-       node server.js
+       exec node_modules/nodemon/bin/nodemon.js -L server.js
   ui:
     image: node:alpine
     ports:
@@ -20,9 +20,9 @@ services:
     volumes:
      - ${UI_MOUNT}:/ui
     working_dir: /ui
+    entrypoint: sh
     command:
-     - sh
      - -c
      - |
        npm install
-       npm run dev
+       exec node build/dev-server.js
