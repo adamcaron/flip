@@ -3,13 +3,26 @@ services:
   api:
     image: node:alpine
     ports:
-      - 8085:8085
+     - 8085:8085
     volumes:
-      - ${API_MOUNT}:/api
+     - ${API_MOUNT}:/api
     working_dir: /api
     command:
-      - sh
-      - -c
-      - |
-        npm install
-        node server.js
+     - sh
+     - -c
+     - |
+       npm install
+       node server.js
+  ui:
+    image: node:alpine
+    ports:
+     - 8080:8080
+    volumes:
+     - ${UI_MOUNT}:/ui
+    working_dir: /ui
+    command:
+     - sh
+     - -c
+     - |
+       npm install
+       npm run dev
