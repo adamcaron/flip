@@ -12,7 +12,7 @@ services:
      - -c
      - |
        npm install
-       exec node_modules/nodemon/bin/nodemon.js -L server.js
+       exec node_modules/.bin/nodemon -L server.js
   ui:
     image: node:alpine
     ports:
