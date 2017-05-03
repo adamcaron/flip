@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   api:
-    image: adamcaron/flip:dev
+    image: adamcaron/flip-api:dev
     ports:
      - 8085:8085
     volumes:
@@ -11,15 +11,12 @@ services:
      - -L
      - server.js
   ui:
-    image: node:alpine
+    image: adamcaron/flip-ui:dev
     ports:
      - 8080:8080
     volumes:
      - ${UI_MOUNT}:/ui
     working_dir: /ui
-    entrypoint: sh
+    entrypoint: node
     command:
-     - -c
-     - |
-       npm install
-       exec node build/dev-server.js
+     - build/dev-server.js
