@@ -9,5 +9,5 @@ RUN npm install
 # copy source files
 COPY . .
 
-ENTRYPOINT node
+ENTRYPOINT [ "node" ]
 CMD [ "build/dev-server.js" ]
