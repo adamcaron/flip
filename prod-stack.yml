@@ -4,3 +4,7 @@ services:
     image: adamcaron/flip-api
     ports:
      - 8085:8085
+  ui:
+    image: adamcaron/flip-ui
+    ports:
+      - 8080:80

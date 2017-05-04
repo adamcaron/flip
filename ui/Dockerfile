@@ -1,13 +1,21 @@
-FROM node:alpine
+FROM nginx:stable-alpine
 
-WORKDIR /ui
+WORKDIR /tmp-build
 
 # install deps
 COPY package.json .
-RUN npm install
+RUN apk add --no-cache nodejs && \
+    npm install
 
 # copy source files
 COPY . .
 
-ENTRYPOINT [ "node" ]
-CMD [ "build/dev-server.js" ]
+# build static distribution files to be served
+RUN node build/build.js && \
+    mv dist/* /usr/share/nginx/html
+
+WORKDIR /usr/share/nginx/html
+
+# cleanup build dependencies
+RUN rm -rf /tmp-build && \
+    apk del nodejs
