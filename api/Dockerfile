@@ -10,4 +10,4 @@ RUN npm install
 COPY . .
 
 ENTRYPOINT [ "node" ]
-CMD [ "server.js" ]
+CMD [ "src/server.js" ]

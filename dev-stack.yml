@@ -5,11 +5,11 @@ services:
     ports:
      - 8085:8085
     volumes:
-     - ${API_MOUNT}:/api
+     - ${API_MOUNT}:/api/src
     entrypoint: node_modules/.bin/nodemon
     command:
      - -L
-     - server.js
+     - src/server.js
   ui:
     image: adamcaron/flip-ui:dev
     ports:
