@@ -15,7 +15,7 @@ services:
     ports:
      - 8080:8080
     volumes:
-     - ${UI_MOUNT}:/ui
+     - ${UI_MOUNT}:/ui/src
     working_dir: /ui
     entrypoint: node
     command:
