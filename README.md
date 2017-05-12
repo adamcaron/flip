@@ -13,4 +13,4 @@
 ### prod
 
  - `bash prod-stack.sh`
- - navigate to localhost:8080
+ - navigate to yourhostname for ui
