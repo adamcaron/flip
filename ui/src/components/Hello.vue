@@ -34,7 +34,7 @@ export default {
   methods: {
     getListings: function () {
       this.$http
-        .get('http://localhost:8085/api')
+        .get('/api/')
         .then(response => {
           this.results = response.data.message
         })

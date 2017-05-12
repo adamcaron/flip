@@ -7,7 +7,8 @@
 ### dev
 
  - `bash dev-stack.sh`
- - navigate to localhost:8080
+ - navigate to yourhostname for app ui
+ - navigate to yourhostname:8080 for proxy dashboard
 
 ### prod
 
