@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  api:
+    image: localhost/flip-api
+    networks:
+      - swarmtools_proxy
+    deploy:
+      labels:
+        - "traefik.port=8085"
+        - "traefik.frontend.rule=PathPrefix:/api/"
+  ui:
+    image: localhost/flip-ui
+    networks:
+      - swarmtools_proxy
+    deploy:
+      labels:
+        - "traefik.port=80"
+        - "traefik.frontend.rule=PathPrefix:/"
+networks:
+  swarmtools_proxy:
+    external: true
+
