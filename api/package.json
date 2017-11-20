@@ -1,7 +1,8 @@
 {
   "main": "src/server.js",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "node-craigslist": "^1.1.2"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

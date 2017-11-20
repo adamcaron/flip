@@ -1,5 +1,5 @@
 <template lang="pug">
-  <div class="hello">
+  #listings
     button(v-on:click.prevent="getListings") get listings
     p {{ results }}
     <h1>{{ msg }}</h1>
@@ -19,12 +19,11 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
-  </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'listings',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -34,7 +33,7 @@ export default {
   methods: {
     getListings: function () {
       this.$http
-        .get('/api/')
+        .get('/api/listings')
         .then(response => {
           this.results = response.data.message
         })
